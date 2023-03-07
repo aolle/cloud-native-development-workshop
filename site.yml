@@ -3,7 +3,7 @@ runtime:
 
 site:
   title: Red Hat Cloud-native Development Workshop
-  url: https://olleb.com/cnd-workshop
+  url: https://olleb.com/cloud-native-development-workshop
   start_page: cnd-workshop::index.adoc
 
 content:

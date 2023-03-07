@@ -3,7 +3,7 @@ runtime:
 
 site:
   title: Red Hat Cloud-native Development Workshop
-  url: http://localhost:8080/cnd-workshop
+  url: http://localhost:8080/cloud-native-development-workshop
   start_page: cnd-workshop::index.adoc
 
 content:

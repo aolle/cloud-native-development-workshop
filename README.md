@@ -2,7 +2,7 @@
 
 Workshop URL:
 
-https://olleb.com/cnd-workshop
+https://olleb.com/cloud-native-development-workshop
 
 ---
 Àngel Ollé Blázquez

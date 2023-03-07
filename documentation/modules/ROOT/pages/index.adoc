@@ -1,0 +1,7 @@
+= Red Hat Cloud-native Development Workshop
+:page-layout: home
+:!sectids:
+
+[.text-center.strong]
+== Introduction
+

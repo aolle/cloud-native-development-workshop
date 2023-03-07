@@ -1,0 +1,16 @@
+= Environment Setup
+include::_attributes.adoc[]
+
+[NOTE,subs="attributes+,+macros"]
+====
+This tutorial was developed and tested with:
+
+* Red Hat OpenShift `{openshift-version}`
+====
+
+[#tools]
+== Workshop Tools
+
+The following tools are required to run the exercises in this tutorial. Please ensure that they are installed and properly configured before proceeding with any of the tutorial chapters.
+
+include::partial$tools.adoc[]

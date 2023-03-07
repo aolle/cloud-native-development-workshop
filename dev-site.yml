@@ -1,0 +1,26 @@
+runtime:
+  cache_dir: ./.cache/antora
+
+site:
+  title: Red Hat Cloud-native Development Workshop
+  url: http://localhost:8080/cnd-workshop
+  start_page: cnd-workshop::index.adoc
+
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: documentation
+asciidoc:
+  attributes:
+    title: Red Hat Cloud-native Development Workshop
+  extensions:
+    - ./lib/remote-include-processor.js
+    - ./lib/tab-block.js
+ui:
+  bundle:
+    url: https://github.com/aolle/rhd-tutorial-ui/releases/download/v0.1.12/ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+output:
+  dir: ./gh-pages

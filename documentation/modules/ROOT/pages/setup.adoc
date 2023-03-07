@@ -14,3 +14,29 @@ This tutorial was developed and tested with:
 The following tools are required to run the exercises in this tutorial. Please ensure that they are installed and properly configured before proceeding with any of the tutorial chapters.
 
 include::partial$tools.adoc[]
+
+[#pre]
+== Red Hat Cloud-native Development Workshop Prerequisites
+
+[#devspaces]
+=== Red Hat OpenShift Dev Spaces
+
+You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift DevSpaces by following these steps:
+
+* Open a browser window and log in to the Red Hat OpenShift Container Platform web console.
+
+* From the Administrator perspective, click on `Operators` and then select `OperatorHub`.
+
+* In the `Filter by keyword` field, type `devspaces`.
+
+image::install/devspaces-tile-1.png[]
+
+* Select the Red Hat OpenShift Dev Spaces tile and click `Install` button.
+
+image::install/devspaces-tile-2.png[]
+
+* On the Install Operator page, select `stable` from the list of available Update Channel options, and then choose `All namespaces on the cluster (default)`. Leave the default value of Installed Namespace as `openshift-operators(Operator recommended)`, and set the Update Approval to Automatic.
+
+image::install/devspaces-tile-3.png[]
+
+* Click `Install`.

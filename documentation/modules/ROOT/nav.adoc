@@ -1,1 +1,4 @@
 * xref:setup.adoc[1. Environment Setup]
+** xref:setup.adoc#tools[1.1. Workshop Tools]
+** xref:setup.adoc#pre[1.2. Red Hat Cloud-native Development Workshop Prerequisites]
+*** xref:setup.adoc#devspaces[1.2.1. Red Hat OpenShift Dev Spaces]

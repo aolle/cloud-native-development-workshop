@@ -40,3 +40,62 @@ image::install/devspaces-tile-2.png[]
 image::install/devspaces-tile-3.png[]
 
 * Click `Install`.
+
+Once the operator installation finishes, create a project named `demo-devspaces` and deploy a `CheCluster` by following these steps:
+
+* From the Administrator perspective, click on `Installed Operators`.
+* Select `Red Hat OpenShift Dev Spaces`.
+
+image::install/che-1.png[]
+
+* Click on `Red Hat OpenShift Dev Spaces instance Specification`, select `Current namespace only` and then click on `Create CheCluster`.
+
+image::install/che-2.png[]
+
+* Set a desired name for the CheCluster, for example `devspaces`, and click on `Create`.
+
+* Wait for the `CheCluster` deployment to finish. When it's available, navigate to `Networking`, then `Routes`, and open the devspaces route.
+
+If the `DevSpaces` dashboard loads correctly, it means that the installation process went without any issues.
+
+[#pipelines]
+=== Red Hat OpenShift Pipelines
+
+You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift Pipelines by following these steps:
+
+* Open a browser window and log in to the Red Hat OpenShift Container Platform web console.
+
+* From the Administrator perspective, click on `Operators` and then select `OperatorHub`.
+
+* In the `Filter by keyword` field, type `openshift pipelines`.
+
+image::install/pipelines-tile-1.png[]
+
+* Select the Red Hat OpenShift Pipelines tile and click `Install` button.
+
+image::install/pipelines-tile-2.png[]
+
+* On the Install Operator page, select `pipelines-1.9` from the list of available Update Channel options, and then choose `All namespaces on the cluster (default)`. Leave the default value of Installed Namespace as `openshift-operators`, and set the Update Approval to Automatic.
+
+image::install/pipelines-tile-3.png[]
+
+* Click `Install`.
+
+[#cicd]
+=== CI/CD Environment
+
+On this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gogs git server, a Sonatype Nexus, a SonarQube, a repository for test and project-generated reports and the Tekton pipelines.
+
+* Create a `demo-cicd` project.
+
+* Deploy the CI/CD environment components:
+
+[.lines_space]
+[.console-input]
+[source,bash, subs="+macros,+attributes"]
+----
+git clone git@github.com:aolle/tekton-cd-demo.git
+./tekton-cd-demo/demoq.sh install
+----
+
+// TODO: oc apply -k 'https://github.com/aolle/tekton-cd-demo/cd/?ref=pipelines-1.9' -n demo-cicd

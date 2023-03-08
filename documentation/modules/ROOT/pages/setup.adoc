@@ -84,7 +84,7 @@ image::install/pipelines-tile-3.png[]
 [#cicd]
 === CI/CD Environment
 
-On this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gogs git server, a Sonatype Nexus, a SonarQube, a repository for test and project-generated reports and the Tekton pipelines.
+In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gogs git server, a Sonatype Nexus, a SonarQube server, a repository for test and project-generated reports, and Tekton pipelines.
 
 * Create a `demo-cicd` project.
 
@@ -94,7 +94,7 @@ On this section, we will deploy all the components of the CI/CD environment. The
 [.console-input]
 [source,bash, subs="+macros,+attributes"]
 ----
-git clone git@github.com:aolle/tekton-cd-demo.git
+git clone -b cnd git@github.com:aolle/tekton-cd-demo.git
 ./tekton-cd-demo/demoq.sh install
 ----
 

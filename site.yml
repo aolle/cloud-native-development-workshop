@@ -18,7 +18,7 @@ asciidoc:
     openshift-version: '4.11.30'
     devspaces-version: '3.4.0'
     pipelines-version: '1.9.2'
-    gitops-version: ''
+    gitops-version: '1.7.2'
     distributedtracing-version: '1.39.0'
     
   extensions:

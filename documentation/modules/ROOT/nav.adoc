@@ -5,3 +5,12 @@
 *** xref:setup.adoc#pipelines[1.2.2. Red Hat OpenShift Pipelines]
 *** xref:setup.adoc#gitops[1.2.3. Red Hat OpenShift GitOps]
 *** xref:setup.adoc#cicd[1.2.4. CI/CD Environment]
+
+* 2. Red Hat OpenShift Dev Spaces
+** xref:setup.adoc#create-workspace[2.1. Create Workspace]
+
+* 3. Red Hat Build of Quarkus
+
+* 4. Red Hat OpenShift Pipelines
+
+* 5. Red Hat OpenShift GitOps

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://olleb.com/cloud-native-development-workshop/devspaces.html</loc>
+<lastmod>2023-03-12T22:02:10.272Z</lastmod>
+</url>
+<url>
 <loc>https://olleb.com/cloud-native-development-workshop/index.html</loc>
-<lastmod>2023-03-08T12:37:52.366Z</lastmod>
+<lastmod>2023-03-12T22:02:10.272Z</lastmod>
 </url>
 <url>
 <loc>https://olleb.com/cloud-native-development-workshop/setup.html</loc>
-<lastmod>2023-03-08T12:37:52.366Z</lastmod>
+<lastmod>2023-03-12T22:02:10.272Z</lastmod>
 </url>
 </urlset>

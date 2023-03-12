@@ -72,11 +72,32 @@
     <a class="nav-link" href="#pipelines">1.2.2. Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#cicd">1.2.3. CI/CD Environment</a>
+    <a class="nav-link" href="#gitops">1.2.3. Red Hat OpenShift GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#cicd">1.2.4. CI/CD Environment</a>
   </li>
 </ul>
   </li>
 </ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">2. Red Hat OpenShift Dev Spaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#create-workspace">2.1. Create Workspace</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">3. Red Hat Build of Quarkus</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">4. Red Hat OpenShift Pipelines</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">5. Red Hat OpenShift GitOps</span>
   </li>
 </ul>
   </li>
@@ -117,6 +138,15 @@
 <li>
 <p>Red Hat OpenShift <code>4.11.30</code></p>
 </li>
+<li>
+<p>Red Hat OpenShift Dev Spaces <code>3.4.0</code></p>
+</li>
+<li>
+<p>Red Hat OpenShift Pipelines <code>1.9.2</code></p>
+</li>
+<li>
+<p>Red Hat OpenShift GitOps <code>1.7.2</code></p>
+</li>
 </ul>
 </div>
 </td>
@@ -146,6 +176,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Red Hat OpenShift CLI</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/downloads/content/290">OpenShift Container Platform downloads page</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -308,24 +342,144 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="cicd"><a class="anchor" href="#cicd"></a>CI/CD Environment</h3>
+<h3 id="gitops"><a class="anchor" href="#gitops"></a>Red Hat OpenShift GitOps</h3>
 <div class="paragraph">
-<p>On this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gogs git server, a Sonatype Nexus, a SonarQube, a repository for test and project-generated reports and the Tekton pipelines.</p>
+<p>You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift GitOps by following these steps:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Create a <code>demo-cicd</code> project.</p>
+<p>Open a browser window and log in to the Red Hat OpenShift Container Platform web console.</p>
 </li>
 <li>
-<p>Deploy the CI/CD environment components:</p>
+<p>From the Administrator perspective, click on <code>Operators</code> and then select <code>OperatorHub</code>.</p>
+</li>
+<li>
+<p>In the <code>Filter by keyword</code> field, type <code>openshift gitops</code>.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/gitops-1.png" alt="gitops 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the Red Hat OpenShift GitOps tile and click <code>Install</code> button.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/gitops-2.png" alt="gitops 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On the Install Operator page, select <code>gitops-1.7</code> from the list of available Update Channel options, and then choose <code>All namespaces on the cluster (default)</code>. Leave the default value of Installed Namespace as <code>openshift-operators</code>, and set the Update Approval to Automatic.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/gitops-3.png" alt="gitops 3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click <code>Install</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cicd"><a class="anchor" href="#cicd"></a>CI/CD Environment</h3>
+<div class="paragraph">
+<p>In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gitea git server, a Sonatype Nexus and a SonarQube server.</p>
+</div>
+<div class="paragraph">
+<p>We have an existing Spring application that we want to migrate to Quarkus because we are interested in taking the advantatge of the benefits provided by the supersonic subatomic Java framework!</p>
+</div>
+<div class="paragraph">
+<p>We will be working with a modififed, prepared, and adapted version of the <code>CI/CD Demo with Tekton and Argo CD on OpenShift</code>, created by Siamak Sadeghianfar and contributors. The original repository is available [here](<a href="https://github.com/siamaksade/openshift-cicd-demo" class="bare">https://github.com/siamaksade/openshift-cicd-demo</a>).</p>
+</div>
+<div class="paragraph">
+<p>However, for this workshop, we will be using a version available [here](<a href="https://github.com/aolle/openshift-cicd-demo/tree/cnd" class="bare">https://github.com/aolle/openshift-cicd-demo/tree/cnd</a>), soecifically in the <code>cnd</code> branch.</p>
+</div>
+<div class="paragraph">
+<p>To install the CI/CD environment, simply clone that branch and proceed as follows:</p>
+</div>
 <div class="listingblock lines_space console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone <a href="mailto:git@github.com">git@github.com</a>:aolle/tekton-cd-demo.git
-./tekton-cd-demo/demoq.sh install</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone -b cnd <a href="https://github.com/aolle/openshift-cicd-demo.git" class="bare">https://github.com/aolle/openshift-cicd-demo.git</a>
+./openshift-cicd-demo/demo.sh install</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure that you have already logged in into your OpenShift cluster before executing the commands. Additionally, make a note of the URLs of the services that the installation script provides.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Verify that the environment has been installed without any issues by opening the different URLs and checking the login and the landing pages. Check that we have two repositories avabilable in Gitea: quarkus-petclinic and quarkus-petclinic-config.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The list of the default credentials (username / password) is as follows:
+* Gitea: gitea / openshift
+* Sonatype Nexus: admin / admin123
+* SonarQube: admin / admin
+* Argo CD: <em>login with OpenShift credentials</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Gitea git server</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/gitea.png" alt="gitea">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sonatype Nexus</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/nexus.png" alt="nexus">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>SonarQube</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/sonar.png" alt="sonar">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Argo CD</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/install/argocd.png" alt="argocd">
 </div>
 </div>
 </div>

@@ -115,9 +115,9 @@ In this section, we will deploy all the components of the CI/CD environment. The
 
 We have an existing Spring application that we want to migrate to Quarkus because we are interested in taking the advantatge of the benefits provided by the supersonic subatomic Java framework!
 
-We will be working with a modififed, prepared, and adapted version of the `CI/CD Demo with Tekton and Argo CD on OpenShift`, created by Siamak Sadeghianfar and contributors. The original repository is available [here](https://github.com/siamaksade/openshift-cicd-demo).
+We will be working with a modififed, prepared, and adapted version of the `CI/CD Demo with Tekton and Argo CD on OpenShift`, created by Siamak Sadeghianfar and contributors. The original repository is available here: https://github.com/siamaksade/openshift-cicd-demo.
 
-However, for this workshop, we will be using a version available [here](https://github.com/aolle/openshift-cicd-demo/tree/cnd), soecifically in the `cnd` branch.
+However, for this workshop, we will be using a version available here: https://github.com/aolle/openshift-cicd-demo/tree/cnd, specifically in the `cnd` branch.
 
 To install the CI/CD environment, simply clone that branch and proceed as follows:
 

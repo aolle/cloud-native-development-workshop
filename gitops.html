@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Red Hat OpenShift GitOps :: Red Hat Cloud-native Development Workshop</title>
+    <link rel="canonical" href="https://olleb.com/cloud-native-development-workshop/gitops.html">
+    <link rel="prev" href="pipelines.html">
+    <meta name="generator" content="Antora 3.0.3">
+    <link rel="stylesheet" href="./_/css/site.css">
+<link rel="icon" href="./_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="./_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://olleb.com/cloud-native-development-workshop">Red Hat Cloud-native Development Workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kafka-tutorial/" target="_blank">Kafka</a>
+            <a class="navbar-item" href="https://devsecops-workshop.github.io/" target="_blank">DevSecOps</a>
+            <a class="navbar-item" href="https://acidonper.github.io/redhat-workshop-cicd-gitops/redhat-workshop-cicd-gitops/" target="_blank">CI/CD & GitOps</a>
+            <a class="navbar-item" href="https://atarazana.github.io/gramola-gitops-guide/gramola-gitops-guide/" target="_blank">Gramola GitOps Guide</a>
+            <a class="navbar-item" href="https://luisarizmendi.github.io/tutorial-secure-onboarding/" target="_blank">Secure Edge device onboarding with RHEL and FDO</a>
+            <a class="navbar-item" href="https://xbryan1.github.io/rhte-2023-acm-docs/" target="_blank">Multicluster Application Deployment with Advanced Cluster Management and GitOps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ROOT" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setup.html">1. Environment Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setup.html#tools">1.1. Workshop Tools</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setup.html#pre">1.2. Red Hat Cloud-native Development Workshop Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="setup.html#devspaces">1.2.1. Red Hat OpenShift Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="setup.html#pipelines">1.2.2. Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="setup.html#gitops">1.2.3. Red Hat OpenShift GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="setup.html#cicd">1.2.4. CI/CD Environment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="devspaces.html">2. Red Hat OpenShift Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">3. Red Hat Build of Quarkus</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="pipelines.html">4. Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="gitops.html">5. Red Hat OpenShift GitOps</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Red Hat Cloud-native Development Workshop</a></li>
+    <li><a href="gitops.html">5. Red Hat OpenShift GitOps</a></li>
+  </ul>
+</nav>
+  <div style="padding: 0 0.5rem 0 0.75rem;"><a href="https://olleb.com" target="_blank" rel="noopener noreferrer"> Àngel Ollé Blázquez | Specialist Solution Architect </a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Red Hat OpenShift GitOps</h1>
+<div class="paragraph">
+<p>OpenShift GitOps is a continuous deployment (CD) tool that uses Argo CD to manage and deploy our applications. With GitOps, we can automatically deploy our applications using a Git-based approach. This allows us to have an auditable, versioned, and repeatable deployment process.</p>
+</div>
+<div class="paragraph">
+<p>Argo CD is a Kubernetes-native tool that provides us with a declarative way to manage our application configurations. It continuously monitors our Git repository for changes and automatically deploys any changes to our target environment. We can define our desired state of the application in a declarative way using Kubernetes manifests, and Argo CD will make sure that the deployed state matches the desired state.</p>
+</div>
+<div class="paragraph">
+<p>One of the benefits of using OpenShift GitOps with Argo CD is that it allows us to implement a robust deployment process that is scalable, repeatable, and resilient. By leveraging Kubernetes native tools and best practices, we can easily manage our applications' entire lifecycle, from development to production. Additionally, GitOps allows us to implement a separation of duties between developers and operators, making it easier to manage and maintain our applications.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift GitOps with Argo CD can help us streamline our deployment process, minimize human error, and improve our overall efficiency. It provides us with a declarative and Git-based approach to managing our application configurations, making it easier to manage and maintain our applications.</p>
+</div>
+<div class="paragraph">
+<p>In the previous section, we used Tekton for our CI cycle, building the image and leaving the platform ready to perform our CD cycle.</p>
+</div>
+<div class="paragraph">
+<p>Up to this point, we had seen our application code repository <code>quarkus-petclinic</code>. In this section, we introduce the other available repository, <code>quarkus-petclinic-config</code>; it contains the configuration of our application, which will use the same base image built earlier, in the different environments.</p>
+</div>
+<div class="paragraph">
+<p>If we look at the repository, we will see that in one of the pipeline stages, a commit was made to the file <code>environments/dev/kustomization.yaml</code> (branch <code>cnd</code>), indicating that the new image digest is <code>00d58&#8230;&#8203;</code>, which if we remember, is the same one we noted in the previous section.</p>
+</div>
+<div class="paragraph">
+<p>This means that Argo CD will take care of updating the platform and updating the associated Kubernetes objects, such as the <code>Deployment</code> object where the reference to the new image is located. In other words, it will deploy the new image.</p>
+</div>
+<div class="paragraph">
+<p>The image is available in the <code>demo-dev</code> project. Let&#8217;s check what was mentioned, following the steps below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the git repository for the configuration of the <code>quarkus-petclinic</code> application, branch <code>cnd</code>, and view the <code>environments/dev/kustomization.yaml</code> file. We observe that the latest code commit updates the sha of the image.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-1.png" alt="gitops 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the Argo CD dashboard. We see the two applications that are being synchronized.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-2.png" alt="gitops 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on <code>dev-quarkus-petclinic</code>.</p>
+</li>
+<li>
+<p>At the top, we see that it indicates that it is synchronized <code>To cnd (xxx)</code> where <code>cnd</code> is the branch of the repository, and <code>xxx</code> is the commit hash. We see that the hash matches the one we had seen before in the first point.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-3.png" alt="gitops 3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the pod component with the name <code>quarkus-petclinic-xxxx</code>.</p>
+</li>
+<li>
+<p>In the SUMMARY, under the IMAGES section, we verify that the version with the new sha is indeed deployed.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-4.png" alt="gitops 4">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If we go to the OpenShift console, we can check that the pod and its route are already deployed with the new image version, in the <code>demo-dev</code> project.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-5.png" alt="gitops 5">
+</div>
+</div>
+<div class="paragraph">
+<p>At this point, let&#8217;s assume that we have already done all the necessary tests in the development environment (<code>demo-dev</code>). Everything is working correctly and we want to promote the image to the stage environment.</p>
+</div>
+<div class="paragraph">
+<p>For context, in the pipeline we ran in the CI section, the final stage created a Pull Request (PR) in the <code>cnd</code> branch of the <code>quarkus-petclinic-config</code> configuration repository. This change, waiting to be approved and merged, modifies the <code>sha</code> of the current image, just like the case we saw for development, but with the difference that the change is made to the <code>environments/stage/kustomization.yaml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>As we saw before, Argo CD also synchronizes that file, which appears as the application name <code>stage-quarkus-petclinic</code> in the Argo CD dashboard.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s see how to promote the image to the stage environment. We will follow the following steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the git repository for the configuration of the <code>quarkus-petclinic</code> application, branch <code>cnd</code>, and view the <code>environments/stage/kustomization.yaml</code> file. We observe that a PR is pending.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-6.png" alt="gitops 6">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the PR.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-7.png" alt="gitops 7">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Merge the PR.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-8.png" alt="gitops 8">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s now check that after the PR merge, Argo CD effectively updates the state of the platform, updating the involved Kubernetes objects and leaving as a final scenario the new image deployed in the demo-stage project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the Argo CD dashboard and select the stage-quarkus-petclinic application.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-9.png" alt="gitops 9">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Verify that the synchronized hash is the same as the one in the git repository.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-10.png" alt="gitops 10">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Check that the deployed pod has the desired <code>sha</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-11.png" alt="gitops 11">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the OpenShift console, we can see the new pod deployed with the new image.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitops/gitops-12.png" alt="gitops 12">
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="pipelines.html">4. Red Hat OpenShift Pipelines</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="./_/js/vendor/clipboard.js"></script>
+<script src="./_/js/site.js"></script>
+<script async src="./_/js/vendor/highlight.js"></script>
+  </body>
+</html>

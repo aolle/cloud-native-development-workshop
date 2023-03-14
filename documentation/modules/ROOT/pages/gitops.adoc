@@ -1,0 +1,82 @@
+= Red Hat OpenShift GitOps
+include::_attributes.adoc[]
+
+OpenShift GitOps is a continuous deployment (CD) tool that uses Argo CD to manage and deploy our applications. With GitOps, we can automatically deploy our applications using a Git-based approach. This allows us to have an auditable, versioned, and repeatable deployment process.
+
+Argo CD is a Kubernetes-native tool that provides us with a declarative way to manage our application configurations. It continuously monitors our Git repository for changes and automatically deploys any changes to our target environment. We can define our desired state of the application in a declarative way using Kubernetes manifests, and Argo CD will make sure that the deployed state matches the desired state.
+
+One of the benefits of using OpenShift GitOps with Argo CD is that it allows us to implement a robust deployment process that is scalable, repeatable, and resilient. By leveraging Kubernetes native tools and best practices, we can easily manage our applications' entire lifecycle, from development to production. Additionally, GitOps allows us to implement a separation of duties between developers and operators, making it easier to manage and maintain our applications.
+
+OpenShift GitOps with Argo CD can help us streamline our deployment process, minimize human error, and improve our overall efficiency. It provides us with a declarative and Git-based approach to managing our application configurations, making it easier to manage and maintain our applications.
+
+In the previous section, we used Tekton for our CI cycle, building the image and leaving the platform ready to perform our CD cycle.
+
+Up to this point, we had seen our application code repository `quarkus-petclinic`. In this section, we introduce the other available repository, `quarkus-petclinic-config`; it contains the configuration of our application, which will use the same base image built earlier, in the different environments.
+
+If we look at the repository, we will see that in one of the pipeline stages, a commit was made to the file `environments/dev/kustomization.yaml` (branch `cnd`), indicating that the new image digest is `00d58...`, which if we remember, is the same one we noted in the previous section.
+
+This means that Argo CD will take care of updating the platform and updating the associated Kubernetes objects, such as the `Deployment` object where the reference to the new image is located. In other words, it will deploy the new image.
+
+The image is available in the `demo-dev` project. Let's check what was mentioned, following the steps below:
+
+* Open the git repository for the configuration of the `quarkus-petclinic` application, branch `cnd`, and view the `environments/dev/kustomization.yaml` file. We observe that the latest code commit updates the sha of the image.
+
+image::gitops/gitops-1.png[]
+
+* Open the Argo CD dashboard. We see the two applications that are being synchronized.
+
+image::gitops/gitops-2.png[]
+
+* Click on `dev-quarkus-petclinic`.
+
+* At the top, we see that it indicates that it is synchronized `To cnd (xxx)` where `cnd` is the branch of the repository, and `xxx` is the commit hash. We see that the hash matches the one we had seen before in the first point.
+
+image::gitops/gitops-3.png[]
+
+* Click on the pod component with the name `quarkus-petclinic-xxxx`.
+
+* In the SUMMARY, under the IMAGES section, we verify that the version with the new sha is indeed deployed.
+
+image::gitops/gitops-4.png[]
+
+* If we go to the OpenShift console, we can check that the pod and its route are already deployed with the new image version, in the `demo-dev` project.
+
+image::gitops/gitops-5.png[]
+
+At this point, let's assume that we have already done all the necessary tests in the development environment (`demo-dev`). Everything is working correctly and we want to promote the image to the stage environment.
+
+For context, in the pipeline we ran in the CI section, the final stage created a Pull Request (PR) in the `cnd` branch of the `quarkus-petclinic-config` configuration repository. This change, waiting to be approved and merged, modifies the `sha` of the current image, just like the case we saw for development, but with the difference that the change is made to the `environments/stage/kustomization.yaml` file.
+
+As we saw before, Argo CD also synchronizes that file, which appears as the application name `stage-quarkus-petclinic` in the Argo CD dashboard.
+
+Let's see how to promote the image to the stage environment. We will follow the following steps:
+
+* Open the git repository for the configuration of the `quarkus-petclinic` application, branch `cnd`, and view the `environments/stage/kustomization.yaml` file. We observe that a PR is pending.
+
+image::gitops/gitops-6.png[]
+
+* Open the PR.
+
+image::gitops/gitops-7.png[]
+
+* Merge the PR.
+
+image::gitops/gitops-8.png[]
+
+Let's now check that after the PR merge, Argo CD effectively updates the state of the platform, updating the involved Kubernetes objects and leaving as a final scenario the new image deployed in the demo-stage project.
+
+* Open the Argo CD dashboard and select the stage-quarkus-petclinic application.
+
+image::gitops/gitops-9.png[]
+
+* Verify that the synchronized hash is the same as the one in the git repository.
+
+image::gitops/gitops-10.png[]
+
+* Check that the deployed pod has the desired `sha`.
+
+image::gitops/gitops-11.png[]
+
+* In the OpenShift console, we can see the new pod deployed with the new image.
+    
+image::gitops/gitops-12.png[]

@@ -134,10 +134,7 @@ NOTE: Make sure that you have already logged in into your OpenShift cluster befo
 Verify that the environment has been installed without any issues by opening the different URLs and checking the login and the landing pages. Check that we have two repositories avabilable in Gitea: quarkus-petclinic and quarkus-petclinic-config.
 
 IMPORTANT: The list of the default credentials (username / password) is as follows:
-* Gitea: gitea / openshift
-* Sonatype Nexus: admin / admin123
-* SonarQube: admin / admin
-* Argo CD: __login with OpenShift credentials__
+Gitea: gitea / openshift | Sonatype Nexus: admin / admin123 | SonarQube: admin / admin | Argo CD: __login with OpenShift credentials__
 
 *Gitea git server*
 

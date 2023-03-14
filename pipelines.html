@@ -131,7 +131,11 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Try to understand the <code>yaml</code> files. You may want to check the [Pipelines as Code](<a href="https://pipelinesascode.com/" class="bare">https://pipelinesascode.com/</a>) and [Tekton](<a href="https://tekton.dev/docs/" class="bare">https://tekton.dev/docs/</a>) documentation.</p>
+<p>Try to understand the <code>yaml</code> files. You may want to check the Pipelines as Code and Tekton documentation:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://pipelinesascode.com/" class="bare">https://pipelinesascode.com/</a>
+<a href="https://tekton.dev/docs/" class="bare">https://tekton.dev/docs/</a></p>
 </div>
 <div class="paragraph">
 <p>These pipeline runs are responsible for cloning the Git code repository, configuring Maven, running unit tests, performing Sonar analysis, uploading the application release to Nexus, building the container image using source to image (s2i), pushing it to the internal OpenShift registry, updating the manifests for Argo CD detection, and finally, opening a pull request in the repository for verification before deploying the image to stage.</p>

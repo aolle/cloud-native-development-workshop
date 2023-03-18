@@ -8,8 +8,10 @@
 
 * xref:devspaces.adoc[2. Red Hat OpenShift Dev Spaces]
 
-* 3. Red Hat Build of Quarkus
+* 3. Red Hat Build of Quarkus (TODO)
 
 * xref:pipelines.adoc[4. Red Hat OpenShift Pipelines]
 
 * xref:gitops.adoc[5. Red Hat OpenShift GitOps]
+
+* 6. Red Hat OpenShift Logging (TODO)

@@ -12,6 +12,7 @@ image::pipelines/pipelines-1.png[]
 Try to understand the `yaml` files. You may want to check the Pipelines as Code and Tekton documentation:
 
 https://pipelinesascode.com/
+
 https://tekton.dev/docs/
 
 These pipeline runs are responsible for cloning the Git code repository, configuring Maven, running unit tests, performing Sonar analysis, uploading the application release to Nexus, building the container image using source to image (s2i), pushing it to the internal OpenShift registry, updating the manifests for Argo CD detection, and finally, opening a pull request in the repository for verification before deploying the image to stage.

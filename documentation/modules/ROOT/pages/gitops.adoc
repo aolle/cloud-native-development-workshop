@@ -19,7 +19,7 @@ This means that Argo CD will take care of updating the platform and updating the
 
 The image is available in the `demo-dev` project. Let's check what was mentioned, following the steps below:
 
-* Open the git repository for the configuration of the `quarkus-petclinic` application, branch `cnd`, and view the `environments/dev/kustomization.yaml` file. We observe that the latest code commit updates the sha of the image.
+* Open the git repository for the configuration of the application, which is `quarkus-petclinic-config`, branch `cnd`, and view the `environments/dev/kustomization.yaml` file. We observe that the latest code commit updates the sha of the image.
 
 image::gitops/gitops-1.png[]
 

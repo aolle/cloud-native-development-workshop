@@ -1,14 +1,14 @@
-* xref:setup.adoc[1. Environment Setup]
-** xref:setup.adoc#tools[1.1. Workshop Tools]
-** xref:setup.adoc#pre[1.2. Red Hat Cloud-native Development Workshop Prerequisites]
-*** xref:setup.adoc#devspaces[1.2.1. Red Hat OpenShift Dev Spaces]
-*** xref:setup.adoc#pipelines[1.2.2. Red Hat OpenShift Pipelines]
-*** xref:setup.adoc#gitops[1.2.3. Red Hat OpenShift GitOps]
-*** xref:setup.adoc#cicd[1.2.4. CI/CD Environment]
+* xref:setup.adoc[Environment Setup]
+** xref:setup.adoc#tools[Workshop Tools]
+** xref:setup.adoc#pre[Red Hat Cloud-native Development Workshop Prerequisites]
+*** xref:setup.adoc#devspaces[Installing Red Hat OpenShift Dev Spaces]
+*** xref:setup.adoc#pipelines[Installing Red Hat OpenShift Pipelines]
+*** xref:setup.adoc#gitops[Installing Red Hat OpenShift GitOps]
+*** xref:setup.adoc#cicd[Installing CI/CD Environment]
 
-* xref:devspaces.adoc[2. Red Hat OpenShift Dev Spaces]
+* xref:devspaces.adoc[Red Hat OpenShift Dev Spaces]
 
-* xref:pipelines.adoc[3. Red Hat OpenShift Pipelines]
+* xref:pipelines.adoc[Red Hat OpenShift Pipelines]
 
-* xref:gitops.adoc[4. Red Hat OpenShift GitOps]
+* xref:gitops.adoc[Red Hat OpenShift GitOps]
 

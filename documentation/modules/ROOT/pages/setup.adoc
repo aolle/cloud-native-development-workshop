@@ -15,7 +15,7 @@ This tutorial was developed and tested with:
 [#tools]
 == Workshop Tools
 
-The following tools are required to run the exercises in this tutorial. Please ensure that they are installed and properly configured before proceeding with any of the tutorial chapters.
+The following tools are required to run the exercises in this tutorial. Ensure they are installed and properly configured before proceeding.
 
 include::partial$tools.adoc[]
 
@@ -23,7 +23,7 @@ include::partial$tools.adoc[]
 == Red Hat Cloud-native Development Workshop Prerequisites
 
 [#devspaces]
-=== Red Hat OpenShift Dev Spaces
+=== Installing Red Hat OpenShift Dev Spaces
 
 You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift DevSpaces by following these steps:
 
@@ -35,11 +35,15 @@ You can use the Red Hat OpenShift Container Platform web console to install Red 
 
 image::install/devspaces-tile-1.png[]
 
-* Select the Red Hat OpenShift Dev Spaces tile and click `Install` button.
+* Select the Red Hat OpenShift Dev Spaces tile and click the `Install` button.
 
 image::install/devspaces-tile-2.png[]
 
-* On the Install Operator page, select `stable` from the list of available Update Channel options, and then choose `All namespaces on the cluster (default)`. Leave the default value of Installed Namespace as `openshift-operators(Operator recommended)`, and set the Update Approval to Automatic.
+* On the Install Operator page:
+  * Select `stable` from the list of available Update Channel options.
+  * Choose `All namespaces on the cluster (default)` as the installation mode.
+  * Leave the default value of `Installed Namespace` as `openshift-operators (Operator recommended)`.
+  * Set the Update Approval to `Automatic`.
 
 image::install/devspaces-tile-3.png[]
 
@@ -52,18 +56,18 @@ Once the operator installation finishes, create a project named `demo-devspaces`
 
 image::install/che-1.png[]
 
-* Click on `Red Hat OpenShift Dev Spaces instance Specification`, select `Current namespace only` and then click on `Create CheCluster`.
+* Click on `Red Hat OpenShift Dev Spaces instance Specification`, select `Current namespace only`, and then click `Create CheCluster`.
 
 image::install/che-2.png[]
 
-* Set a desired name for the CheCluster, for example `devspaces`, and click on `Create`.
+* Set a desired name for the CheCluster, for example `devspaces`, and click `Create`.
 
-* Wait for the `CheCluster` deployment to finish. When it's available, navigate to `Networking`, then `Routes`, and open the devspaces route.
+* Wait for the `CheCluster` deployment to finish. When it's available, navigate to `Networking` → `Routes`, and open the DevSpaces route.
 
-If the `DevSpaces` dashboard loads correctly, it means that the installation process went without any issues.
+If the `DevSpaces` dashboard loads correctly, the installation was successful.
 
 [#pipelines]
-=== Red Hat OpenShift Pipelines
+=== Installing Red Hat OpenShift Pipelines
 
 You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift Pipelines by following these steps:
 
@@ -75,18 +79,22 @@ You can use the Red Hat OpenShift Container Platform web console to install Red 
 
 image::install/pipelines-tile-1.png[]
 
-* Select the Red Hat OpenShift Pipelines tile and click `Install` button.
+* Select the Red Hat OpenShift Pipelines tile and click the `Install` button.
 
 image::install/pipelines-tile-2.png[]
 
-* On the Install Operator page, select `pipelines-1.9` from the list of available Update Channel options, and then choose `All namespaces on the cluster (default)`. Leave the default value of Installed Namespace as `openshift-operators`, and set the Update Approval to Automatic.
+* On the Install Operator page:
+  * Select `pipelines-1.9` from the list of available Update Channel options.
+  * Choose `All namespaces on the cluster (default)` as the installation mode.
+  * Leave the default value of `Installed Namespace` as `openshift-operators`.
+  * Set the Update Approval to `Automatic`.
 
 image::install/pipelines-tile-3.png[]
 
 * Click `Install`.
 
 [#gitops]
-=== Red Hat OpenShift GitOps
+=== Installing Red Hat OpenShift GitOps
 
 You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift GitOps by following these steps:
 
@@ -98,28 +106,32 @@ You can use the Red Hat OpenShift Container Platform web console to install Red 
 
 image::install/gitops-1.png[]
 
-* Select the Red Hat OpenShift GitOps tile and click `Install` button.
+* Select the Red Hat OpenShift GitOps tile and click the `Install` button.
 
 image::install/gitops-2.png[]
 
-* On the Install Operator page, select `gitops-1.7` from the list of available Update Channel options, and then choose `All namespaces on the cluster (default)`. Leave the default value of Installed Namespace as `openshift-operators`, and set the Update Approval to Automatic.
+* On the Install Operator page:
+  * Select `gitops-1.7` from the list of available Update Channel options.
+  * Choose `All namespaces on the cluster (default)` as the installation mode.
+  * Leave the default value of `Installed Namespace` as `openshift-operators`.
+  * Set the Update Approval to `Automatic`.
 
 image::install/gitops-3.png[]
 
 * Click `Install`.
 
 [#cicd]
-=== CI/CD Environment
+=== Installing CI/CD Environment
 
-In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gitea git server, a Sonatype Nexus and a SonarQube server.
+In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gitea git server, a Sonatype Nexus server, and a SonarQube server.
 
-We have an existing Spring application that we want to migrate to Quarkus because we are interested in taking the advantatge of the benefits provided by the supersonic subatomic Java framework!
+We have an existing Spring application that we want to migrate to Quarkus in order to take advantage of the benefits provided by the supersonic subatomic Java framework!
 
-We will be working with a modififed, prepared, and adapted version of the `CI/CD Demo with Tekton and Argo CD on OpenShift`, created by Siamak Sadeghianfar and contributors. The original repository is available here: https://github.com/siamaksade/openshift-cicd-demo.
+We will be working with a modified and prepared version of the `CI/CD Demo with Tekton and Argo CD on OpenShift`, created by Siamak Sadeghianfar and contributors. The original repository is available here: https://github.com/siamaksade/openshift-cicd-demo.
 
-However, for this workshop, we will be using a version available here: https://github.com/aolle/openshift-cicd-demo/tree/cnd, specifically in the `cnd` branch.
+For this workshop, we will use the version available here: https://github.com/aolle/openshift-cicd-demo/tree/cnd, specifically the `cnd` branch.
 
-To install the CI/CD environment, simply clone that branch and proceed as follows:
+To install the CI/CD environment, clone that branch and run the installation script:
 
 [.lines_space]
 [.console-input]
@@ -129,12 +141,15 @@ git clone -b cnd https://github.com/aolle/openshift-cicd-demo.git
 ./openshift-cicd-demo/demo.sh install
 ----
 
-NOTE: Make sure that you have already logged in into your OpenShift cluster before executing the commands. Additionally, make a note of the URLs of the services that the installation script provides.
+NOTE: Ensure that you are already logged into your OpenShift cluster before executing the commands. Also, make a note of the URLs of the services that the installation script provides.
 
-Verify that the environment has been installed without any issues by opening the different URLs and checking the login and the landing pages. Check that we have two repositories avabilable in Gitea: quarkus-petclinic and quarkus-petclinic-config.
+Verify that the environment has been installed correctly by opening the different service URLs and checking their landing pages. Confirm that two repositories are available in Gitea: `quarkus-petclinic` and `quarkus-petclinic-config`.
 
-IMPORTANT: The list of the default credentials (username / password) is as follows:
-Gitea: gitea / openshift | Sonatype Nexus: admin / admin123 | SonarQube: admin / admin | Argo CD: __login with OpenShift credentials__
+IMPORTANT: Default credentials (username/password) are as follows:
+*Gitea:* gitea / openshift
+*Sonatype Nexus:* admin / admin123
+*SonarQube:* admin / admin
+*Argo CD:* login with OpenShift credentials
 
 *Gitea git server*
 

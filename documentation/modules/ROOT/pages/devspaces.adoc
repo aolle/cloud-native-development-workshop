@@ -1,22 +1,22 @@
 = Red Hat OpenShift Dev Spaces
 include::_attributes.adoc[]
 
-Using Kubernetes and containers, Red Hat OpenShift Dev Spaces is built on the open Eclipse Che project, providing a consistent, secure, and zero-configuration development environment for any member of the development or IT team.
+Built on Eclipse Che, Red Hat OpenShift Dev Spaces provides a consistent, secure, zero-configuration development environment using Kubernetes and containers.
 
-In this section, we will create our first workspace for coding. Please follow these steps:
+In this section, we will create our first workspace:
 
-* Open the `Gitea` git server (`demo-cicd` OpenShift project) and go to the `quarkus-petclinic` repository. Ensure that the `cnd` branch is selected.
+* Open the `Gitea` git server (`demo-cicd` OpenShift project) and navigate to the `quarkus-petclinic` repository. Ensure the `cnd` branch is selected.
 
-* Open the `devfile.yaml`, click on `Raw`, and copy the URL.
+* Open the `devfile.yaml`, click `Raw`, and copy the URL.
 
 image::devspaces/devspaces-1.png[]
 
-* Open the Red Hat OpenShift Dev Spaces dashboard (`demo-devspaces` OpenShift project) and click on `Create Workspace`.
+* Open the Red Hat OpenShift Dev Spaces dashboard (`demo-devspaces` OpenShift project) and click `Create Workspace`.
 
 image::devspaces/devspaces-2.png[]
 
-* Paste the URL of the `devfile.yaml` into the `Git Repo URL` field, then click `Create & Open`.
+* Paste the `devfile.yaml` URL into the `Git Repo URL` field and click `Create & Open`.
 
-* Wait for the workspace to finish being created.
+* Wait for the workspace to be fully created.
 
 image::devspaces/devspaces-3.png[]

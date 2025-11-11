@@ -5,12 +5,12 @@
 [.text-center.strong]
 == Introduction
 
-Welcome to this workshop focused on cloud-native development with OpenShift using tools from the Red Hat stack.
+Welcome to this workshop focused on cloud-native development with OpenShift using Red Hat tools.
 
-In this workshop, we will explore how to build and deploy applications in a cloud-native way, leveraging the power of containerization, Kubernetes, and DevOps principles.
+In this workshop, we will explore how to build and deploy applications in a cloud-native way, leveraging containerization, Kubernetes, and DevOps principles.
 
-We will cover various topics such as deploying and scaling applications, monitoring and logging, continuous integration and delivery, and more.
+Topics covered include deploying and scaling applications, monitoring and logging, continuous integration and delivery, and more.
 
-By the end of this workshop, you will have gained a solid understanding of how to develop, deploy and manage cloud-native applications on OpenShift using the Red Hat stack of tools.
+By the end of this workshop, you will have gained a solid understanding of how to develop, deploy, and manage cloud-native applications on OpenShift using Red Hat technologies.
 
-IMPORTANT: This is not an official guide or workshop provided by Red Hat. For more information on training or guidelines related to this topic or product, please reach out to your designated Red Hat representative.
+IMPORTANT: This is not an official guide or workshop provided by Red Hat. For official training, documentation, or guidance related to this product, please contact your designated Red Hat representative.

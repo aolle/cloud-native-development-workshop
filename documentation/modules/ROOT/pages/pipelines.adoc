@@ -3,46 +3,55 @@ include::_attributes.adoc[]
 
 In this section, we will explore how to implement Continuous Integration (CI) with OpenShift Pipelines, which leverages Tekton underneath. Pipeline runs are defined as code, allowing for greater flexibility and easier management.
 
-In our setup, we have pipelines defined as code within the .tekton directory of our application, available in Git. Our Git repository is configured with a webhook for commits, which triggers a request to the URL of the Pipelines as Code Controller to execute the pipeline.
+In our setup, pipelines are defined as code within the `.tekton` directory of our application repository in Git. The repository is configured with a webhook for commits, which triggers a request to the Pipelines as Code Controller to execute the pipeline.
 
 Navigate to the `quarkus-petclinic` repository and inspect the `.tekton` directory files.
 
 image::pipelines/pipelines-1.png[]
 
-Try to understand the `yaml` files. You may want to check the Pipelines as Code and Tekton documentation:
+Try to understand the `yaml` files. Useful references:
 
 https://pipelinesascode.com/
 
 https://tekton.dev/docs/
 
-These pipeline runs are responsible for cloning the Git code repository, configuring Maven, running unit tests, performing Sonar analysis, uploading the application release to Nexus, building the container image using source to image (s2i), pushing it to the internal OpenShift registry, updating the manifests for Argo CD detection, and finally, opening a pull request in the repository for verification before deploying the image to stage.
+These pipeline runs are responsible for:
 
-As someone with experience in DevOps and CI/CD processes, I find OpenShift Pipelines and Tekton to be a powerful toolset for building and automating the entire software delivery pipeline. The ability to define pipeline runs as code is a game-changer, as it provides a level of transparency and repeatability that was not possible before.
+* Cloning the Git repository.
+* Configuring Maven.
+* Running unit tests.
+* Performing Sonar analysis.
+* Uploading the application release to Nexus.
+* Building the container image using source-to-image (s2i).
+* Pushing it to the internal OpenShift registry.
+* Updating manifests for Argo CD detection.
+* Opening a pull request in the repository for verification before deploying to stage.
 
-Now, let's take a look at how it works:
+OpenShift Pipelines and Tekton provide a transparent, repeatable, and automated CI/CD process by defining pipeline runs as code.
 
-* Let's make a change in the source code to see how the pipeline is triggered.
+Steps to see it in action:
 
-* Open the pom.xml file and, for example, increment the version of the release.
+* Make a change in the source code to trigger the pipeline.
+* Open `pom.xml` and increment the version of the release.
 
 image::pipelines/pipelines-2.png[]
 
-* Save the changes by committing to the repository.
+* Commit the changes to the repository.
 
 image::pipelines/pipelines-3.png[]
 
-* Go to the OpenShift web console, `demo-cicd` workspace, in Pipelines, under the PipelineRuns tab. We see the pipeline running and open it.
+* In the OpenShift web console, navigate to the `demo-cicd` workspace, Pipelines → PipelineRuns. The pipeline will appear running.
 
 image::pipelines/pipelines-4.png[]
 
 image::pipelines/pipelines-5.png[]
 
-* We can see the pipeline running, with its different stages, by clicking on it, we can see the logs. We wait for the pipeline run to complete.
+* Click on the running pipeline to view its stages and logs. Wait for it to complete.
 
 image::pipelines/pipelines-6.png[]
 
-* Click on the `build-image` stage to review the logs. Take note of the `sha256` given to the image. In our example, `00d58...`.
+* Click on the `build-image` stage to review logs. Take note of the `sha256` assigned to the image, e.g., `00d58...`.
 
 image::pipelines/pipelines-7.png[]
 
-At this point, we have successfully executed our CI cycle with the help of Tekton. It has taken care of running the different steps of the cycle, including building the application image. It has also created a commit in the configuration repository, which we will further detail in the next section dedicated to CD.
+At this point, the CI cycle has been successfully executed using Tekton. The pipeline has automated all steps, including building the application image, and has created a commit in the configuration repository. The next section will cover CD.

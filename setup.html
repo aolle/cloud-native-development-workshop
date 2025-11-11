@@ -59,39 +59,39 @@
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="setup.html">1. Environment Setup</a>
+    <a class="nav-link" href="setup.html">Environment Setup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#tools">1.1. Workshop Tools</a>
+    <a class="nav-link" href="#tools">Workshop Tools</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#pre">1.2. Red Hat Cloud-native Development Workshop Prerequisites</a>
+    <a class="nav-link" href="#pre">Red Hat Cloud-native Development Workshop Prerequisites</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#devspaces">1.2.1. Red Hat OpenShift Dev Spaces</a>
+    <a class="nav-link" href="#devspaces">Installing Red Hat OpenShift Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#pipelines">1.2.2. Red Hat OpenShift Pipelines</a>
+    <a class="nav-link" href="#pipelines">Installing Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#gitops">1.2.3. Red Hat OpenShift GitOps</a>
+    <a class="nav-link" href="#gitops">Installing Red Hat OpenShift GitOps</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#cicd">1.2.4. CI/CD Environment</a>
+    <a class="nav-link" href="#cicd">Installing CI/CD Environment</a>
   </li>
 </ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="devspaces.html">2. Red Hat OpenShift Dev Spaces</a>
+    <a class="nav-link" href="devspaces.html">Red Hat OpenShift Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="pipelines.html">3. Red Hat OpenShift Pipelines</a>
+    <a class="nav-link" href="pipelines.html">Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="gitops.html">4. Red Hat OpenShift GitOps</a>
+    <a class="nav-link" href="gitops.html">Red Hat OpenShift GitOps</a>
   </li>
 </ul>
   </li>
@@ -107,7 +107,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Red Hat Cloud-native Development Workshop</a></li>
-    <li><a href="setup.html">1. Environment Setup</a></li>
+    <li><a href="setup.html">Environment Setup</a></li>
   </ul>
 </nav>
   <div style="padding: 0 0.5rem 0 0.75rem;"><a href="https://olleb.com" target="_blank" rel="noopener noreferrer">© 2023 - Àngel Ollé Blázquez</a></div>
@@ -153,7 +153,7 @@
 <h2 id="tools"><a class="anchor" href="#tools"></a>Workshop Tools</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following tools are required to run the exercises in this tutorial. Please ensure that they are installed and properly configured before proceeding with any of the tutorial chapters.</p>
+<p>The following tools are required to run the exercises in this tutorial. Ensure they are installed and properly configured before proceeding.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -183,7 +183,7 @@
 <h2 id="pre"><a class="anchor" href="#pre"></a>Red Hat Cloud-native Development Workshop Prerequisites</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="devspaces"><a class="anchor" href="#devspaces"></a>Red Hat OpenShift Dev Spaces</h3>
+<h3 id="devspaces"><a class="anchor" href="#devspaces"></a>Installing Red Hat OpenShift Dev Spaces</h3>
 <div class="paragraph">
 <p>You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift DevSpaces by following these steps:</p>
 </div>
@@ -208,7 +208,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Select the Red Hat OpenShift Dev Spaces tile and click <code>Install</code> button.</p>
+<p>Select the Red Hat OpenShift Dev Spaces tile and click the <code>Install</code> button.</p>
 </li>
 </ul>
 </div>
@@ -220,7 +220,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>On the Install Operator page, select <code>stable</code> from the list of available Update Channel options, and then choose <code>All namespaces on the cluster (default)</code>. Leave the default value of Installed Namespace as <code>openshift-operators(Operator recommended)</code>, and set the Update Approval to Automatic.</p>
+<p>On the Install Operator page:</p>
+</li>
+<li>
+<p>Select <code>stable</code> from the list of available Update Channel options.</p>
+</li>
+<li>
+<p>Choose <code>All namespaces on the cluster (default)</code> as the installation mode.</p>
+</li>
+<li>
+<p>Leave the default value of <code>Installed Namespace</code> as <code>openshift-operators (Operator recommended)</code>.</p>
+</li>
+<li>
+<p>Set the Update Approval to <code>Automatic</code>.</p>
 </li>
 </ul>
 </div>
@@ -257,7 +269,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Click on <code>Red Hat OpenShift Dev Spaces instance Specification</code>, select <code>Current namespace only</code> and then click on <code>Create CheCluster</code>.</p>
+<p>Click on <code>Red Hat OpenShift Dev Spaces instance Specification</code>, select <code>Current namespace only</code>, and then click <code>Create CheCluster</code>.</p>
 </li>
 </ul>
 </div>
@@ -269,19 +281,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Set a desired name for the CheCluster, for example <code>devspaces</code>, and click on <code>Create</code>.</p>
+<p>Set a desired name for the CheCluster, for example <code>devspaces</code>, and click <code>Create</code>.</p>
 </li>
 <li>
-<p>Wait for the <code>CheCluster</code> deployment to finish. When it&#8217;s available, navigate to <code>Networking</code>, then <code>Routes</code>, and open the devspaces route.</p>
+<p>Wait for the <code>CheCluster</code> deployment to finish. When it&#8217;s available, navigate to <code>Networking</code> → <code>Routes</code>, and open the DevSpaces route.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If the <code>DevSpaces</code> dashboard loads correctly, it means that the installation process went without any issues.</p>
+<p>If the <code>DevSpaces</code> dashboard loads correctly, the installation was successful.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pipelines"><a class="anchor" href="#pipelines"></a>Red Hat OpenShift Pipelines</h3>
+<h3 id="pipelines"><a class="anchor" href="#pipelines"></a>Installing Red Hat OpenShift Pipelines</h3>
 <div class="paragraph">
 <p>You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift Pipelines by following these steps:</p>
 </div>
@@ -306,7 +318,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Select the Red Hat OpenShift Pipelines tile and click <code>Install</code> button.</p>
+<p>Select the Red Hat OpenShift Pipelines tile and click the <code>Install</code> button.</p>
 </li>
 </ul>
 </div>
@@ -318,7 +330,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>On the Install Operator page, select <code>pipelines-1.9</code> from the list of available Update Channel options, and then choose <code>All namespaces on the cluster (default)</code>. Leave the default value of Installed Namespace as <code>openshift-operators</code>, and set the Update Approval to Automatic.</p>
+<p>On the Install Operator page:</p>
+</li>
+<li>
+<p>Select <code>pipelines-1.9</code> from the list of available Update Channel options.</p>
+</li>
+<li>
+<p>Choose <code>All namespaces on the cluster (default)</code> as the installation mode.</p>
+</li>
+<li>
+<p>Leave the default value of <code>Installed Namespace</code> as <code>openshift-operators</code>.</p>
+</li>
+<li>
+<p>Set the Update Approval to <code>Automatic</code>.</p>
 </li>
 </ul>
 </div>
@@ -336,7 +360,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="gitops"><a class="anchor" href="#gitops"></a>Red Hat OpenShift GitOps</h3>
+<h3 id="gitops"><a class="anchor" href="#gitops"></a>Installing Red Hat OpenShift GitOps</h3>
 <div class="paragraph">
 <p>You can use the Red Hat OpenShift Container Platform web console to install Red Hat OpenShift GitOps by following these steps:</p>
 </div>
@@ -361,7 +385,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Select the Red Hat OpenShift GitOps tile and click <code>Install</code> button.</p>
+<p>Select the Red Hat OpenShift GitOps tile and click the <code>Install</code> button.</p>
 </li>
 </ul>
 </div>
@@ -373,7 +397,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>On the Install Operator page, select <code>gitops-1.7</code> from the list of available Update Channel options, and then choose <code>All namespaces on the cluster (default)</code>. Leave the default value of Installed Namespace as <code>openshift-operators</code>, and set the Update Approval to Automatic.</p>
+<p>On the Install Operator page:</p>
+</li>
+<li>
+<p>Select <code>gitops-1.7</code> from the list of available Update Channel options.</p>
+</li>
+<li>
+<p>Choose <code>All namespaces on the cluster (default)</code> as the installation mode.</p>
+</li>
+<li>
+<p>Leave the default value of <code>Installed Namespace</code> as <code>openshift-operators</code>.</p>
+</li>
+<li>
+<p>Set the Update Approval to <code>Automatic</code>.</p>
 </li>
 </ul>
 </div>
@@ -391,21 +427,21 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="cicd"><a class="anchor" href="#cicd"></a>CI/CD Environment</h3>
+<h3 id="cicd"><a class="anchor" href="#cicd"></a>Installing CI/CD Environment</h3>
 <div class="paragraph">
-<p>In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gitea git server, a Sonatype Nexus and a SonarQube server.</p>
+<p>In this section, we will deploy all the components of the CI/CD environment. The environment is composed of a Gitea git server, a Sonatype Nexus server, and a SonarQube server.</p>
 </div>
 <div class="paragraph">
-<p>We have an existing Spring application that we want to migrate to Quarkus because we are interested in taking the advantatge of the benefits provided by the supersonic subatomic Java framework!</p>
+<p>We have an existing Spring application that we want to migrate to Quarkus in order to take advantage of the benefits provided by the supersonic subatomic Java framework!</p>
 </div>
 <div class="paragraph">
-<p>We will be working with a modififed, prepared, and adapted version of the <code>CI/CD Demo with Tekton and Argo CD on OpenShift</code>, created by Siamak Sadeghianfar and contributors. The original repository is available here: <a href="https://github.com/siamaksade/openshift-cicd-demo" class="bare">https://github.com/siamaksade/openshift-cicd-demo</a>.</p>
+<p>We will be working with a modified and prepared version of the <code>CI/CD Demo with Tekton and Argo CD on OpenShift</code>, created by Siamak Sadeghianfar and contributors. The original repository is available here: <a href="https://github.com/siamaksade/openshift-cicd-demo" class="bare">https://github.com/siamaksade/openshift-cicd-demo</a>.</p>
 </div>
 <div class="paragraph">
-<p>However, for this workshop, we will be using a version available here: <a href="https://github.com/aolle/openshift-cicd-demo/tree/cnd" class="bare">https://github.com/aolle/openshift-cicd-demo/tree/cnd</a>, specifically in the <code>cnd</code> branch.</p>
+<p>For this workshop, we will use the version available here: <a href="https://github.com/aolle/openshift-cicd-demo/tree/cnd" class="bare">https://github.com/aolle/openshift-cicd-demo/tree/cnd</a>, specifically the <code>cnd</code> branch.</p>
 </div>
 <div class="paragraph">
-<p>To install the CI/CD environment, simply clone that branch and proceed as follows:</p>
+<p>To install the CI/CD environment, clone that branch and run the installation script:</p>
 </div>
 <div class="listingblock lines_space console-input">
 <div class="content">
@@ -420,13 +456,13 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Make sure that you have already logged in into your OpenShift cluster before executing the commands. Additionally, make a note of the URLs of the services that the installation script provides.
+Ensure that you are already logged into your OpenShift cluster before executing the commands. Also, make a note of the URLs of the services that the installation script provides.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Verify that the environment has been installed without any issues by opening the different URLs and checking the login and the landing pages. Check that we have two repositories avabilable in Gitea: quarkus-petclinic and quarkus-petclinic-config.</p>
+<p>Verify that the environment has been installed correctly by opening the different service URLs and checking their landing pages. Confirm that two repositories are available in Gitea: <code>quarkus-petclinic</code> and <code>quarkus-petclinic-config</code>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -435,8 +471,11 @@ Make sure that you have already logged in into your OpenShift cluster before exe
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-The list of the default credentials (username / password) is as follows:
-Gitea: gitea / openshift | Sonatype Nexus: admin / admin123 | SonarQube: admin / admin | Argo CD: <em>login with OpenShift credentials</em>
+Default credentials (username/password) are as follows:
+<strong>Gitea:</strong> gitea / openshift
+<strong>Sonatype Nexus:</strong> admin / admin123
+<strong>SonarQube:</strong> admin / admin
+<strong>Argo CD:</strong> login with OpenShift credentials
 </td>
 </tr>
 </table>
@@ -478,7 +517,7 @@ Gitea: gitea / openshift | Sonatype Nexus: admin / admin123 | SonarQube: admin /
 </div>
 <nav class="pagination">
   <span class="prev"><a href="index.html">Red Hat Cloud-native Development Workshop</a></span>
-  <span class="next"><a href="devspaces.html">2. Red Hat OpenShift Dev Spaces</a></span>
+  <span class="next"><a href="devspaces.html">Red Hat OpenShift Dev Spaces</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

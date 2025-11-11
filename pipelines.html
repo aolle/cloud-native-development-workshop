@@ -59,39 +59,39 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="setup.html">1. Environment Setup</a>
+    <a class="nav-link" href="setup.html">Environment Setup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="setup.html#tools">1.1. Workshop Tools</a>
+    <a class="nav-link" href="setup.html#tools">Workshop Tools</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="setup.html#pre">1.2. Red Hat Cloud-native Development Workshop Prerequisites</a>
+    <a class="nav-link" href="setup.html#pre">Red Hat Cloud-native Development Workshop Prerequisites</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="setup.html#devspaces">1.2.1. Red Hat OpenShift Dev Spaces</a>
+    <a class="nav-link" href="setup.html#devspaces">Installing Red Hat OpenShift Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="setup.html#pipelines">1.2.2. Red Hat OpenShift Pipelines</a>
+    <a class="nav-link" href="setup.html#pipelines">Installing Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="setup.html#gitops">1.2.3. Red Hat OpenShift GitOps</a>
+    <a class="nav-link" href="setup.html#gitops">Installing Red Hat OpenShift GitOps</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="setup.html#cicd">1.2.4. CI/CD Environment</a>
+    <a class="nav-link" href="setup.html#cicd">Installing CI/CD Environment</a>
   </li>
 </ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="devspaces.html">2. Red Hat OpenShift Dev Spaces</a>
+    <a class="nav-link" href="devspaces.html">Red Hat OpenShift Dev Spaces</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="pipelines.html">3. Red Hat OpenShift Pipelines</a>
+    <a class="nav-link" href="pipelines.html">Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="gitops.html">4. Red Hat OpenShift GitOps</a>
+    <a class="nav-link" href="gitops.html">Red Hat OpenShift GitOps</a>
   </li>
 </ul>
   </li>
@@ -107,7 +107,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Red Hat Cloud-native Development Workshop</a></li>
-    <li><a href="pipelines.html">3. Red Hat OpenShift Pipelines</a></li>
+    <li><a href="pipelines.html">Red Hat OpenShift Pipelines</a></li>
   </ul>
 </nav>
   <div style="padding: 0 0.5rem 0 0.75rem;"><a href="https://olleb.com" target="_blank" rel="noopener noreferrer">© 2023 - Àngel Ollé Blázquez</a></div>
@@ -119,7 +119,7 @@
 <p>In this section, we will explore how to implement Continuous Integration (CI) with OpenShift Pipelines, which leverages Tekton underneath. Pipeline runs are defined as code, allowing for greater flexibility and easier management.</p>
 </div>
 <div class="paragraph">
-<p>In our setup, we have pipelines defined as code within the .tekton directory of our application, available in Git. Our Git repository is configured with a webhook for commits, which triggers a request to the URL of the Pipelines as Code Controller to execute the pipeline.</p>
+<p>In our setup, pipelines are defined as code within the <code>.tekton</code> directory of our application repository in Git. The repository is configured with a webhook for commits, which triggers a request to the Pipelines as Code Controller to execute the pipeline.</p>
 </div>
 <div class="paragraph">
 <p>Navigate to the <code>quarkus-petclinic</code> repository and inspect the <code>.tekton</code> directory files.</p>
@@ -130,7 +130,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Try to understand the <code>yaml</code> files. You may want to check the Pipelines as Code and Tekton documentation:</p>
+<p>Try to understand the <code>yaml</code> files. Useful references:</p>
 </div>
 <div class="paragraph">
 <p><a href="https://pipelinesascode.com/" class="bare">https://pipelinesascode.com/</a></p>
@@ -139,21 +139,52 @@
 <p><a href="https://tekton.dev/docs/" class="bare">https://tekton.dev/docs/</a></p>
 </div>
 <div class="paragraph">
-<p>These pipeline runs are responsible for cloning the Git code repository, configuring Maven, running unit tests, performing Sonar analysis, uploading the application release to Nexus, building the container image using source to image (s2i), pushing it to the internal OpenShift registry, updating the manifests for Argo CD detection, and finally, opening a pull request in the repository for verification before deploying the image to stage.</p>
-</div>
-<div class="paragraph">
-<p>As someone with experience in DevOps and CI/CD processes, I find OpenShift Pipelines and Tekton to be a powerful toolset for building and automating the entire software delivery pipeline. The ability to define pipeline runs as code is a game-changer, as it provides a level of transparency and repeatability that was not possible before.</p>
-</div>
-<div class="paragraph">
-<p>Now, let&#8217;s take a look at how it works:</p>
+<p>These pipeline runs are responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Let&#8217;s make a change in the source code to see how the pipeline is triggered.</p>
+<p>Cloning the Git repository.</p>
 </li>
 <li>
-<p>Open the pom.xml file and, for example, increment the version of the release.</p>
+<p>Configuring Maven.</p>
+</li>
+<li>
+<p>Running unit tests.</p>
+</li>
+<li>
+<p>Performing Sonar analysis.</p>
+</li>
+<li>
+<p>Uploading the application release to Nexus.</p>
+</li>
+<li>
+<p>Building the container image using source-to-image (s2i).</p>
+</li>
+<li>
+<p>Pushing it to the internal OpenShift registry.</p>
+</li>
+<li>
+<p>Updating manifests for Argo CD detection.</p>
+</li>
+<li>
+<p>Opening a pull request in the repository for verification before deploying to stage.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OpenShift Pipelines and Tekton provide a transparent, repeatable, and automated CI/CD process by defining pipeline runs as code.</p>
+</div>
+<div class="paragraph">
+<p>Steps to see it in action:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make a change in the source code to trigger the pipeline.</p>
+</li>
+<li>
+<p>Open <code>pom.xml</code> and increment the version of the release.</p>
 </li>
 </ul>
 </div>
@@ -165,7 +196,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Save the changes by committing to the repository.</p>
+<p>Commit the changes to the repository.</p>
 </li>
 </ul>
 </div>
@@ -177,7 +208,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Go to the OpenShift web console, <code>demo-cicd</code> workspace, in Pipelines, under the PipelineRuns tab. We see the pipeline running and open it.</p>
+<p>In the OpenShift web console, navigate to the <code>demo-cicd</code> workspace, Pipelines → PipelineRuns. The pipeline will appear running.</p>
 </li>
 </ul>
 </div>
@@ -194,7 +225,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>We can see the pipeline running, with its different stages, by clicking on it, we can see the logs. We wait for the pipeline run to complete.</p>
+<p>Click on the running pipeline to view its stages and logs. Wait for it to complete.</p>
 </li>
 </ul>
 </div>
@@ -206,7 +237,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Click on the <code>build-image</code> stage to review the logs. Take note of the <code>sha256</code> given to the image. In our example, <code>00d58&#8230;&#8203;</code>.</p>
+<p>Click on the <code>build-image</code> stage to review logs. Take note of the <code>sha256</code> assigned to the image, e.g., <code>00d58&#8230;&#8203;</code>.</p>
 </li>
 </ul>
 </div>
@@ -216,11 +247,11 @@
 </div>
 </div>
 <div class="paragraph">
-<p>At this point, we have successfully executed our CI cycle with the help of Tekton. It has taken care of running the different steps of the cycle, including building the application image. It has also created a commit in the configuration repository, which we will further detail in the next section dedicated to CD.</p>
+<p>At this point, the CI cycle has been successfully executed using Tekton. The pipeline has automated all steps, including building the application image, and has created a commit in the configuration repository. The next section will cover CD.</p>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="devspaces.html">2. Red Hat OpenShift Dev Spaces</a></span>
-  <span class="next"><a href="gitops.html">4. Red Hat OpenShift GitOps</a></span>
+  <span class="prev"><a href="devspaces.html">Red Hat OpenShift Dev Spaces</a></span>
+  <span class="next"><a href="gitops.html">Red Hat OpenShift GitOps</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

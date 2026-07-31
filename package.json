@@ -11,7 +11,7 @@
     "@antora/cli": "^3.1.4",
     "@antora/site-generator-default": "^3.1.4",
     "@babel/cli": "^8.0.4",
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^8.0.1",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^8.0.2",
     "@babel/register": "^7.5.5",
